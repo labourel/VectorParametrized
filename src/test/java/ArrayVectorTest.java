@@ -2,7 +2,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -98,5 +101,23 @@ public class ArrayVectorTest {
         for (int i = 4; i < 6; i++) {
             assertEquals(Integer.valueOf(i-1), vector.get(i));
         }
+    }
+
+    @Test
+    void testContains(){
+        Vector<Integer> vector = new ArrayVector<>();
+        for (int i = 0; i < 10; i++) {
+            vector.add(i);
+        }
+        List<Integer> col1= new ArrayList<>();
+        col1.add(1);
+        col1.add(3);
+
+        List<Integer> col2= new ArrayList<>();
+        col2.add(1);
+        col2.add(10);
+
+        assertTrue(vector.containsAll(col1));
+        assertFalse(vector.containsAll(col2));
     }
 }

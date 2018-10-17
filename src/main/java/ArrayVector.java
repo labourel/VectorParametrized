@@ -65,7 +65,7 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        return indexOf(o) != -1;
     }
 
     @Override
@@ -175,7 +175,12 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        for (Object o : c){
+            if(!this.contains(o)){
+                return false;
+            }
+        }
+        return true;
     }
 }
 
