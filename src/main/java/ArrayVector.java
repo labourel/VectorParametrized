@@ -72,7 +72,12 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        for(int index = 0; index < size(); index++){
+            if(o.equals(get(index))){
+                return index;
+            }
+        }
+        return -1;
     }
 
     @Override

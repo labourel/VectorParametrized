@@ -40,7 +40,6 @@ public class ArrayVectorTest {
     }
 
     @Test
-    @Disabled
     void testIndexOf(){
         Vector<Integer> vector = new ArrayVector<>();
         for (int i =0 ; i<10; i++){
@@ -49,6 +48,7 @@ public class ArrayVectorTest {
         for (int i =0 ; i<10; i++){
             assertEquals(i, vector.indexOf(i));
         }
+        assertEquals(-1, vector.indexOf(-12));
     }
 
 }
