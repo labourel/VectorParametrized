@@ -49,6 +49,12 @@ public class ArrayVectorTest {
             assertEquals(i, vector.indexOf(i));
         }
         assertEquals(-1, vector.indexOf(-12));
+        for (int i = 0 ; i<5; i++){
+            assertEquals(-1, vector.indexOf(i, 6));
+        }
+        for (int i =0 ; i<10; i++){
+            assertEquals(i, vector.lastIndexOf(i));
+        }
     }
 
 }

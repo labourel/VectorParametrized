@@ -82,12 +82,17 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public int lastIndexOf(Object o, int index) {
-        return 0;
+        for(int i = index; i >= 0; i--){
+            if(o.equals(get(i))){
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        return lastIndexOf(o, size()-1);
     }
 
     @Override
