@@ -67,17 +67,17 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public int indexOf(Object o, int index) {
-        return 0;
+        for(int i = index; i < size(); i++){
+            if(o.equals(get(i))){
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int indexOf(Object o) {
-        for(int index = 0; index < size(); index++){
-            if(o.equals(get(index))){
-                return index;
-            }
-        }
-        return -1;
+        return this.indexOf(o, 0);
     }
 
     @Override
