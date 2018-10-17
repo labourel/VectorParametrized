@@ -8,6 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
@@ -25,6 +26,29 @@ public class ArrayVectorTest {
     void anNewlyCreatedArrayVectorShouldHaveSize0(){
         Vector<Integer> vector = new ArrayVector<>();
         assertEquals(0, vector.size());
+        assertTrue(vector.isEmpty());
+    }
+    @Test
+    void testAddAndGet(){
+        Vector<Integer> vector = new ArrayVector<>();
+        for (int i = 0 ; i<10; i++){
+            vector.add(i);
+        }
+        for (int i = 0 ; i<10; i++){
+            assertEquals(Integer.valueOf(i), vector.get(i));
+        }
+    }
+
+    @Test
+    @Disabled
+    void testIndexOf(){
+        Vector<Integer> vector = new ArrayVector<>();
+        for (int i =0 ; i<10; i++){
+            vector.add(i);
+        }
+        for (int i =0 ; i<10; i++){
+            assertEquals(i, vector.indexOf(i));
+        }
     }
 
 }

@@ -42,7 +42,7 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public void setSize(int newSize) {
-
+        this.elementCount = newSize;
     }
 
     @Override
@@ -57,7 +57,7 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size()==0;
     }
 
     @Override
@@ -112,17 +112,25 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        return (E) elementData[index];
     }
 
     @Override
     public E set(int index, E element) {
-        return null;
+        Object result = elementData[index];
+
+        elementData[index] = element;
+
+        return (E) result;
     }
 
     @Override
     public boolean add(E e) {
-        return false;
+        if(size()==capacity())
+            return false;
+        setSize(size()+1);
+        set(size()-1, e);
+        return true;
     }
 
     @Override
