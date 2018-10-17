@@ -20,4 +20,11 @@ public class ArrayVectorTest {
         Vector<Integer> vector = new ArrayVector<>();
         assertEquals(10,vector.capacity());
     }
+
+    @Test
+    void anNewlyCreatedArrayVectorShouldHaveSize0(){
+        Vector<Integer> vector = new ArrayVector<>();
+        assertEquals(0, vector.size());
+    }
+
 }

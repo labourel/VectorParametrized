@@ -52,7 +52,7 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public int size() {
-        return 0;
+        return elementCount;
     }
 
     @Override
