@@ -83,4 +83,20 @@ public class ArrayVectorTest {
         assertEquals(Integer.valueOf(9), vector.lastElement());
     }
 
+    @Test
+    void testInsert() {
+        Vector<Integer> vector = new ArrayVector<>();
+        for (int i = 0; i < 5; i++) {
+            vector.add(i);
+        }
+        vector.insertElementAt(9,3);
+        assertEquals(6, vector.size());
+        for (int i = 0; i < 3; i++) {
+            assertEquals(Integer.valueOf(i), vector.get(i));
+        }
+        assertEquals(Integer.valueOf(9), vector.get(3));
+        for (int i = 4; i < 6; i++) {
+            assertEquals(Integer.valueOf(i-1), vector.get(i));
+        }
+    }
 }

@@ -42,6 +42,9 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public void setSize(int newSize) {
+        for(int index = newSize; index <size(); index++){
+            set(index, null);
+        }
         this.elementCount = newSize;
     }
 
@@ -107,12 +110,18 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public void insertElementAt(E obj, int index) {
-
+        if(size()==capacity())
+            return;
+        setSize(size()+1);
+        for(int i=size()-1; i >= index; i--){
+            set(i+1, get(i));
+        }
+        set(index, obj);
     }
 
     @Override
     public void removeAllElements() {
-
+        setSize(0);
     }
 
     @Override
