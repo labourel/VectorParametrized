@@ -126,7 +126,11 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] result = new Object[size()];
+        for(int index=0; index <size(); index++){
+            result[index] = get(index);
+        }
+        return result;
     }
 
     @Override

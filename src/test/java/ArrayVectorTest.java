@@ -10,10 +10,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by Arnaud Labourel on 30/09/2018.
@@ -119,5 +116,15 @@ public class ArrayVectorTest {
 
         assertTrue(vector.containsAll(col1));
         assertFalse(vector.containsAll(col2));
+    }
+    @Test
+    void testToArray(){
+        Vector<Integer> vector = new ArrayVector<>();
+        Integer[] expectedArray = new Integer[10];
+        for (int i = 0; i < 10; i++) {
+            vector.add(i);
+            expectedArray[i]=i;
+        }
+        assertArrayEquals(expectedArray, vector.toArray());
     }
 }
