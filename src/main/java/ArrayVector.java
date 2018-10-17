@@ -145,7 +145,12 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public boolean remove(Object o) {
-        return false;
+        int position = indexOf(o);
+        if (position == -1){
+            return false;
+        }
+        remove(position);
+        return true;
     }
 
     @Override

@@ -9,6 +9,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
@@ -58,7 +59,7 @@ public class ArrayVectorTest {
     }
 
     @Test
-    void testRemoveIndex(){
+    void testRemove(){
         Vector<Integer> vector = new ArrayVector<>();
         for (int i =0 ; i<10; i++){
             vector.add(i);
@@ -68,6 +69,9 @@ public class ArrayVectorTest {
         for (int i = 5 ; i<9; i++){
             assertEquals(Integer.valueOf(i+1), vector.get(i));
         }
+        assertFalse(vector.remove(Integer.valueOf(5)));
+        assertTrue(vector.remove(Integer.valueOf(9)));
+
     }
 
 }
