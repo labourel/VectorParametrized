@@ -57,4 +57,17 @@ public class ArrayVectorTest {
         }
     }
 
+    @Test
+    void testRemoveIndex(){
+        Vector<Integer> vector = new ArrayVector<>();
+        for (int i =0 ; i<10; i++){
+            vector.add(i);
+        }
+        vector.remove(5);
+        assertEquals(9, vector.size());
+        for (int i = 5 ; i<9; i++){
+            assertEquals(Integer.valueOf(i+1), vector.get(i));
+        }
+    }
+
 }

@@ -150,7 +150,13 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public E remove(int index) {
-        return null;
+        E result = get(index);
+
+        for(int i = index; i<size()-1; i++){
+            set(i, get(i+1));
+        }
+        setSize(size()-1);
+        return result;
     }
 
     @Override
