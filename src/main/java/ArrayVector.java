@@ -97,12 +97,12 @@ public class ArrayVector<E> implements Vector<E> {
 
     @Override
     public E firstElement() {
-        return null;
+        return get(0);
     }
 
     @Override
     public E lastElement() {
-        return null;
+        return get(size()-1);
     }
 
     @Override

@@ -73,5 +73,14 @@ public class ArrayVectorTest {
         assertTrue(vector.remove(Integer.valueOf(9)));
 
     }
+    @Test
+    void testLastAndFirstElement(){
+        Vector<Integer> vector = new ArrayVector<>();
+        for (int i =0 ; i<10; i++){
+            vector.add(i);
+        }
+        assertEquals(Integer.valueOf(0), vector.firstElement());
+        assertEquals(Integer.valueOf(9), vector.lastElement());
+    }
 
 }
